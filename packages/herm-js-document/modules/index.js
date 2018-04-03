@@ -3,7 +3,7 @@ class HermDoc {
 	constructor(initial) {
     this.keys = [];
     this.content = [];
-    let i = parseInt(Date.now() + '' + parseInt(Math.random() * 9999));
+      let i = parseInt(Date.now() + '' + parseInt(Math.random() * 10000)) + '' + parseInt(Math.random() * 10000);
     this.keys[0] = i;
     this.content[i] = '';
     if(initial) {
@@ -15,7 +15,7 @@ class HermDoc {
   	let docIndex = this.keys[index];
 
   	Array.from(value).forEach( (e,k) => {
-      let i = parseInt(Date.now() + '' + parseInt(Math.random() * 9999));
+      let i = parseInt(Date.now() + '' + parseInt(Math.random() * 10000)) + '' + parseInt(Math.random() * 10000);
       this.keys.splice(index+k,0,i);
       this.content[i] = e;
     });
@@ -94,7 +94,7 @@ class HermDoc {
 
   deleteRange(from, to) {
   	let r = to - from;
-    for(let i = 0 ; i <= r; i++) {
+    for(let i = 0 ; i < r; i++) {
     	const k = this.keys[from + i];
       this.content[k] =  null;
     }
