@@ -1,4 +1,9 @@
+
+[![CircleCI](https://circleci.com/gh/azukaar/herm-js/tree/master.svg?style=svg)](https://circleci.com/gh/azukaar/herm-js/tree/master)
+
 # Herm document system
+
+[![NPM](https://nodei.co/npm/herm-js-document.png)](https://npmjs.org/package/herm-js-document)
 
 This module allow you to create a "git like" sync system for documents in JS with automatic conflict resolution. With this module, you can edit multiple instances of the same document and merge them in a queue, the module will solve the conflict by itself.
 
