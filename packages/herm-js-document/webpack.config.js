@@ -6,6 +6,6 @@ module.exports = {
     path: path.resolve(__dirname, 'umd'),
     filename: 'index.js',
     libraryTarget: 'umd',
-    library: 'hermJsHtml'
+    library: 'hermDoc'
   }
 };

@@ -12,7 +12,7 @@ npm install herm-js-document
 
 or via ES6 modules
 
-```
+```js
 <script type="module">
 	import HermDoc from '//unpkg.com/herm-js';
 </script>
@@ -22,7 +22,7 @@ or via ES6 modules
 
 For plain text :
 
-```
+```js
 let doc = new HermDoc();
 doc.push(0, "Hello");
 
@@ -51,7 +51,7 @@ console.log("doc(delete)  : ", doc.display()); // doc(merged with outdated) :  H
 
 For JSON : 
 
-```
+```js
 let docJson = new HermJsonDoc();
 docJson.key = "123";
 console.log(docJson.display()) // {key: "123"}

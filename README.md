@@ -1,9 +1,4 @@
-
-[![CircleCI](https://circleci.com/gh/azukaar/herm-js/tree/master.svg?style=svg)](https://circleci.com/gh/azukaar/herm-js/tree/master)
-
 # Herm document system
-
-[![NPM](https://nodei.co/npm/herm-js-document.png)](https://npmjs.org/package/herm-js-document)
 
 This module allow you to create a "git like" sync system for documents in JS with automatic conflict resolution. With this module, you can edit multiple instances of the same document and merge them in a queue, the module will solve the conflict by itself.
 
@@ -17,7 +12,7 @@ npm install herm-js-document
 
 or via ES6 modules
 
-```
+```js
 <script type="module">
 	import HermDoc from '//unpkg.com/herm-js';
 </script>
@@ -27,7 +22,7 @@ or via ES6 modules
 
 For plain text :
 
-```
+```js
 let doc = new HermDoc();
 doc.push(0, "Hello");
 
@@ -56,7 +51,7 @@ console.log("doc(delete)  : ", doc.display()); // doc(merged with outdated) :  H
 
 For JSON : 
 
-```
+```js
 let docJson = new HermJsonDoc();
 docJson.key = "123";
 console.log(docJson.display()) // {key: "123"}
