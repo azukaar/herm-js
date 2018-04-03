@@ -1,12 +1,12 @@
 {
   "name": "herm-js",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "JS Network framework for offline first progressive web apps",
-  "main": "umd/index.js",
+  "main": "modules/index.js",
   "module": "modules/index.js",
   "scripts": {
-    "test": "jest",
-    "build": "webpack -p"
+    "test": "echo 'ignored'",
+    "build": "echo 'ignored'"
   },
   "repository": {
     "type": "git",
