@@ -14,7 +14,8 @@ or via ES6 modules
 
 ```js
 <script type="module">
-	import HermDoc from '//unpkg.com/herm-js';
+    import HermDoc from '//unpkg.com/herm-js-document';
+    let doc = new HermDoc();
 </script>
 ```
 
