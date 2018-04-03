@@ -1,0 +1,48 @@
+{
+  "name": "herm-js-monorepo",
+  "version": "0.0.1",
+  "description": "JS Network framework for offline first progressive web apps",
+  "main": "index.js",
+  "scripts": {
+    "bootstrap": "lerna bootstrap --use-workspaces",
+    "test": "lerna run test",
+    "prepare": "lerna run prepare",
+    "build": "lerna run build",
+    "publish": "lerna publish",
+    "clean": "rimraf packages/**/lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/azukaar/herm-js.git"
+  },
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "keywords": [
+    "herm-js",
+    "javascript",
+    "framework",
+    "data",
+    "sync",
+    "conflict",
+    "progressive",
+    "apps",
+    "offline"
+  ],
+  "babel": {
+    "presets": [
+      "env"
+    ]
+  },
+  "author": "Yann Stepienik",
+  "license": "Apache 2.0",
+  "devDependencies": {
+    "babel-jest": "^22.4.3",
+    "babel-preset-env": "^1.6.1",
+    "jest": "^22.4.2",
+    "lerna": "^2.9.0",
+    "webpack": "^4.3.0",
+    "webpack-cli": "^2.0.13"
+  }
+}
