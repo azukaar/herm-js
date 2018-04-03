@@ -47,7 +47,7 @@ console.log("doc(merged with outdated) : ", doc.display()); // doc(merged with o
 
 doc.deleteRange(0, 6);
 
-console.log("doc(delete)  : ", doc.display()); // doc(merged with outdated) :  Hello world ?!
+console.log("doc(delete)  : ", doc.display()); // doc(merged with outdated) : world ?!
 ```
 
 For JSON : 
