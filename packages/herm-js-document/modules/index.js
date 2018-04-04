@@ -3,7 +3,7 @@ class HermDoc {
 	constructor(initial) {
     this.keys = [];
     this.content = [];
-      let i = parseInt(Date.now() + '' + parseInt(Math.random() * 10000)) + '' + parseInt(Math.random() * 10000);
+    let i = parseInt(Date.now() + '' + parseInt(Math.random() * 10000)) + '' + parseInt(Math.random() * 10000);
     this.keys[0] = i;
     this.content[i] = '';
     if(initial) {
@@ -40,9 +40,10 @@ class HermDoc {
   }
 
   displayRange(from, to) {
+    const keys = this.getKeys();
   	let r = "";
   	
-    this.keys.forEach((key, index) => {
+    keys.forEach((key, index) => {
     	if(index >= from && index < to && this.content[key])
 	      r += this.content[key];
     });
@@ -87,16 +88,25 @@ class HermDoc {
       }
     }
 
-    result.content = Object.assign([], this.content, newDoc.content);
-    
+    result.content = Object.assign([], this.content);
+
+    newDoc.keys.forEach((e) => {
+      if(result.content[e] !== null)
+        result.content[e] = newDoc.content[e];
+    });
+
     return result;
   }
 
-  deleteRange(from, to) {
-  	let r = to - from;
-    for(let i = 0 ; i < r; i++) {
-    	const k = this.keys[from + i];
-      this.content[k] =  null;
+  getKeys() {
+    return this.keys.filter(e => this.content[e] !== null);
+  }
+
+  deleteRange(from, length) {
+    const keys = this.getKeys();
+    for(let i = 0; i < length; i++) {
+      const k = keys[from + i];
+      this.content[k] = null;
     }
   }
 }

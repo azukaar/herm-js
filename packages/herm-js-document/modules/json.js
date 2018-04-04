@@ -54,7 +54,7 @@ class HermJsonDoc {
               }
               else {
                 const realIndex = obj._data.keys.indexOf(obj._index[prop].pos);
-                obj._data.deleteRange(realIndex, obj._index[prop].len + 1);
+                obj._data.deleteRange(realIndex, obj._index[prop].len);
               	obj._index[prop].len = value.length;
                 obj._data.push(realIndex, value);
                 obj._index[prop].pos = obj._data.keys[realIndex];
