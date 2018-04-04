@@ -6,7 +6,7 @@
   "module": "modules/index.js",
   "scripts": {
     "test": "jest",
-    "lint": "eslint --fix ./modules",
+    "lint": "eslint --fix ./modules ./test",
     "build": "webpack -p"
   },
   "repository": {
