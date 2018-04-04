@@ -59,7 +59,7 @@ describe('Text', () => {
   });
 
   describe('at document start', () => {
-    it('merge into itself, empty', () => {
+    test('merge into itself, empty', () => {
       const doc = new HermDoc();
 
       doc.merge(doc);
@@ -69,7 +69,7 @@ describe('Text', () => {
       expect(doc.display()).toBe('');
     });
 
-    it('merge into itself, initial text', () => {
+    test('merge into itself, initial text', () => {
       const doc = new HermDoc('foobar');
 
       doc.merge(doc);
@@ -79,7 +79,7 @@ describe('Text', () => {
       expect(doc.display()).toBe('foobar');
     });
 
-    it('three empty doc merge', () => {
+    test('three empty doc merge', () => {
       let doc1 = new HermDoc();
       let doc2 = new HermDoc();
       let doc3 = new HermDoc();
@@ -111,7 +111,7 @@ describe('Text', () => {
       expect(doc3.display()).toBe('');
     });
 
-    it('three non-empty doc merge', () => {
+    test('three non-empty doc merge', () => {
       let doc1 = new HermDoc('a');
       let doc2 = new HermDoc('b');
       let doc3 = new HermDoc('c');
@@ -322,6 +322,14 @@ describe('Text', () => {
         doc.deleteRange(0, 9999);
         expect(doc.display()).toBe('');
       });
+    });
+
+    test('without recovering deleted keys on merge', () => {
+      const doc = new HermDoc('hello');
+      const doc2 = doc.duplicate();
+      doc.deleteRange(1, 1);
+      doc.merge(doc2);
+      expect(doc.display()).toBe('hllo');
     });
   });
 });
