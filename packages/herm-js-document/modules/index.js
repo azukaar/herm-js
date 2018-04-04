@@ -103,6 +103,9 @@ class HermDoc {
       const k = keys[from + i];
       this.content[k] = null;
     }
+
+    this.keys = [...this.keys];
+    this.keys.splice(from, length);
   }
 }
 
