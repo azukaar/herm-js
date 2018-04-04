@@ -1,5 +1,5 @@
 
-[![CircleCI](https://circleci.com/gh/azukaar/herm-js/tree/master.svg?style=svg)](https://circleci.com/gh/azukaar/herm-js/tree/master)
+[![CircleCI](https://circleci.com/gh/azukaar/herm-js/tree/master.svg?style=svg)](https://circleci.com/gh/azukaar/herm-js/tree/master) [![Coverage Status](https://coveralls.io/repos/github/azukaar/herm-js/badge.svg?branch=master)](https://coveralls.io/github/azukaar/herm-js?branch=master)
 
 # Herm document system
 
