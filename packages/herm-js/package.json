@@ -6,6 +6,7 @@
   "module": "modules/index.js",
   "scripts": {
     "test": "echo 'ignored'",
+    "lint": "echo 'ignored'",
     "build": "echo 'ignored'"
   },
   "repository": {

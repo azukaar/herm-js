@@ -1,67 +1,62 @@
 import HermDoc from './index';
 
-const toJsonAtt = (prop, v) => {
- 	return JSON.stringify({[prop]: v}).replace(/^{/, '').replace(/}$/, '')+',';
-}
+const toJsonAtt = (prop, v) => `${JSON.stringify({ [prop]: v }).replace(/^{/, '').replace(/}$/, '')},`;
 
 class HermJsonDoc {
-	constructor() {
-  	return new Proxy({
-    		_data : new HermDoc('{}'),
-        _index : [],
-        display : function () {
-        	return JSON.parse(this._data.display().replace(/,}$/, '}'));
-        },
-        merge : function(doc) {
-        	const temp = new HermJsonDoc();
-        	temp._data = this._data.duplicate();
-        	temp._data = temp._data.merge(doc._data);
-          temp._index = Object.assign([], this._index);
-          return temp;
-        },
-        duplicate : function() {
-        	const temp = new HermJsonDoc();
-        	temp._data = this._data.duplicate();
-          temp._index = Object.assign([], this._index);
-          return temp;
-        }
-    	}, {
-        get: function(obj, prop) {
-					if(prop in obj) 
-            return obj[prop]
-          else {
-            let temp = JSON.parse('{' + obj._data.displayRange(obj._data.indexOf(obj._index[prop].pos), obj._index[prop].len) + '}');
-            return temp[prop];
-          }
-        },
-        set: function(obj, prop, value) {
-					if(prop in obj ) {
-            obj[prop] = value;
-            return true;
-          } 
-          else {
-          		value = toJsonAtt(prop, value);
-              
-            	if(!obj._index[prop]) {
+  constructor() {
+    return new Proxy({
+      data: new HermDoc('{}'),
+      index: [],
+      display() {
+        return JSON.parse(this.data.display().replace(/,}$/, '}'));
+      },
+      merge(doc) {
+        const temp = new HermJsonDoc();
+        temp.data = this.data.duplicate();
+        temp.data = temp.data.merge(doc.data);
+        temp.index = Object.assign([], this.index);
+        return temp;
+      },
+      duplicate() {
+        const temp = new HermJsonDoc();
+        temp.data = this.data.duplicate();
+        temp.index = Object.assign([], this.index);
+        return temp;
+      },
+    }, {
+      get(obj, prop) {
+        if (prop in obj) { return obj[prop]; }
 
-              	obj._index[prop] = {
-                	pos: obj._data.keys.length - 2,
-                  len: value.length
-                };
-
-                obj._data.push(obj._data.keys.length - 2,  value);
-                obj._index[prop].pos = obj._data.keys[obj._index[prop].pos];
-              }
-              else {
-                const realIndex = obj._data.keys.indexOf(obj._index[prop].pos);
-                obj._data.deleteRange(realIndex, obj._index[prop].len);
-              	obj._index[prop].len = value.length;
-                obj._data.push(realIndex, value);
-                obj._index[prop].pos = obj._data.keys[realIndex];
-              }
-            	return true;
-            }
+        const temp = JSON.parse(`{${obj.data.displayRange(obj.data.indexOf(obj.index[prop].pos), obj.index[prop].len)}}`);
+        return temp[prop];
+      },
+      /* eslint-disable no-param-reassign */
+      set(obj, prop, value) {
+        if (prop in obj) {
+          obj[prop] = value;
+          return true;
         }
+
+        const stringValue = toJsonAtt(prop, value);
+
+        if (!obj.index[prop]) {
+          obj.index[prop] = {
+            pos: obj.data.keys.length - 2,
+            len: stringValue.length,
+          };
+
+          obj.data.push(obj.data.keys.length - 2, stringValue);
+          obj.index[prop].pos = obj.data.keys[obj.index[prop].pos];
+        } else {
+          const realIndex = obj.data.keys.indexOf(obj.index[prop].pos);
+          obj.data.deleteRange(realIndex, obj.index[prop].len);
+          obj.index[prop].len = stringValue.length;
+          obj.data.push(realIndex, stringValue);
+          obj.index[prop].pos = obj.data.keys[realIndex];
+        }
+        return true;
+      },
+      /* eslint-enable no-param-reassign */
     });
   }
 }
