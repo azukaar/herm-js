@@ -40,9 +40,10 @@ class HermDoc {
   }
 
   displayRange(from, to) {
+    const keys = this.getKeys();
   	let r = "";
   	
-    this.keys.forEach((key, index) => {
+    keys.forEach((key, index) => {
     	if(index >= from && index < to && this.content[key])
 	      r += this.content[key];
     });
@@ -92,11 +93,15 @@ class HermDoc {
     return result;
   }
 
-  deleteRange(from, to) {
-  	let r = to - from;
-    for(let i = 0 ; i < r; i++) {
-    	const k = this.keys[from + i];
-      this.content[k] =  null;
+  getKeys() {
+    return this.keys.filter(e => this.content[e] !== null);
+  }
+
+  deleteRange(from, length) {
+    const keys = this.getKeys();
+    for(let i = 0; i < length; i++) {
+      const k = keys[from + i];
+      this.content[k] = null;
     }
   }
 }
