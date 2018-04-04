@@ -1,5 +1,5 @@
 
-[![CircleCI](https://circleci.com/gh/azukaar/herm-js/tree/master.svg?style=shield)](https://circleci.com/gh/azukaar/herm-js/tree/master) [![Coverage Status](https://coveralls.io/repos/github/azukaar/herm-js/badge.svg?branch=master)](https://coveralls.io/github/azukaar/herm-js?branch=master) [![js-airbnb-style](https://img.shields.io/badge/code%20style-Airbnb-brightgreen.svg)](https://www.npmjs.com/package/eslint-config-airbnb-base)
+[![CircleCI](https://img.shields.io/circleci/project/github/azukaar/herm-js.svg)](https://circleci.com/gh/azukaar/herm-js/tree/master) [![Coverage Status](https://img.shields.io/coveralls/github/azukaar/herm-js.svg)](https://coveralls.io/github/azukaar/herm-js?branch=master) [![js-airbnb-style](https://img.shields.io/badge/code%20style-Airbnb-brightgreen.svg)](https://www.npmjs.com/package/eslint-config-airbnb-base)
 
 # Herm document system
 
