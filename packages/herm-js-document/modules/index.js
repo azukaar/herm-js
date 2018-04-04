@@ -3,7 +3,7 @@ class HermDoc {
 	constructor(initial) {
     this.keys = [];
     this.content = [];
-      let i = parseInt(Date.now() + '' + parseInt(Math.random() * 10000)) + '' + parseInt(Math.random() * 10000);
+    let i = parseInt(Date.now() + '' + parseInt(Math.random() * 10000)) + '' + parseInt(Math.random() * 10000);
     this.keys[0] = i;
     this.content[i] = '';
     if(initial) {
@@ -88,8 +88,13 @@ class HermDoc {
       }
     }
 
-    result.content = Object.assign([], this.content, newDoc.content);
-    
+    result.content = Object.assign([], this.content);
+
+    newDoc.keys.forEach((e) => {
+      if(result.content[e] !== null)
+        result.content[e] = newDoc.content[e];
+    });
+
     return result;
   }
 
