@@ -8,7 +8,7 @@
     "test": "jest --coverage; cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "prepare": "lerna run prepare",
     "build": "lerna run build",
-    "publish": "lerna publish",
+    "publish": "npm run build; lerna publish",
     "lint": "lerna run lint",
     "clean": "rimraf packages/**/lib"
   },
