@@ -20,7 +20,7 @@ class HermDoc {
       this.content[i] = e;
     });
   }
-  
+
   duplicate() {
   	let t = new HermDoc();
     t.keys = Object.assign([], this.keys);
@@ -30,27 +30,27 @@ class HermDoc {
 
   display() {
   	let r = "";
-  	
+
     this.keys.forEach((key) => {
     	if(this.content[key])
 	      r += this.content[key];
     });
-    
+
     return r;
   }
 
   displayRange(from, to) {
     const keys = this.getKeys();
-  	let r = "";
-  	
+    let r = "";
+
     keys.forEach((key, index) => {
     	if(index >= from && index < to && this.content[key])
 	      r += this.content[key];
     });
-    
+
     return r;
   }
-  
+
   indexOf(key) {
   	return this.keys.indexOf(key);
   }
