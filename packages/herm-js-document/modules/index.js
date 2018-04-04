@@ -2,7 +2,7 @@ class HermDoc {
   constructor(initial) {
     this.keys = [];
     this.content = [];
-    const i = `${parseInt(`${Date.now()}${parseInt(Math.random() * 10000, 10)}${parseInt(Math.random() * 10000, 10)}`, 10)}}`;
+    const i = `${`${Date.now()}${parseInt(Math.random() * 10000, 10)}${parseInt(Math.random() * 10000, 10)}`}`;
     this.keys[0] = i;
     this.content[i] = '';
     if (initial) {
@@ -12,7 +12,7 @@ class HermDoc {
 
   push(index, value) {
     Array.from(value).forEach((e, k) => {
-      const i = `${parseInt(`${Date.now()}${parseInt(Math.random() * 10000, 10)}${parseInt(Math.random() * 10000, 10)}`, 10)}}`;
+      const i = `${`${Date.now()}${parseInt(Math.random() * 10000, 10)}${parseInt(Math.random() * 10000, 10)}`}`;
       this.keys.splice(index + k, 0, i);
       this.content[i] = e;
     });

@@ -42,6 +42,17 @@ describe('Text', () => {
     expect(doc.display()).toBe('Hello world ?!');
   });
 
+  test('Is able to merge bigger in smaller', () => {
+    let doc = new HermDoc();
+    doc.push(0, 'H');
+
+    const doc2 = doc.duplicate();
+    doc.push(6, 'ello world');
+
+    doc = doc.merge(doc2);
+    expect(doc.display()).toBe('Hello world');
+  });
+
   test('Is able to display range', () => {
     const doc = new HermDoc('123456');
     expect(doc.displayRange(0, 3)).toBe('123');
