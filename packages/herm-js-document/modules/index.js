@@ -1,8 +1,28 @@
+function ranID(value) {
+  const cuDate = (`${Date.now()}`).slice(5);
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_-=+][}{|/.,?><~£≈ç√∫~µåß∂ƒ©∆œ∑®†^^©˙∆';
+  let text = '';
+
+  for (let i = 0; i < 4; i += 1) {
+    const t = parseInt(cuDate.slice(i * 2, (i * 2) + 2), 10);
+    text += chars.charAt(t);
+  }
+
+  for (let i = 0; i < 3; i += 1) {
+    text += chars.charAt(Math.floor(Math.random() * chars.length));
+  }
+
+  text += value;
+
+  return text;
+}
+
+
 class HermDoc {
   constructor(initial) {
     this.keys = [];
     this.content = [];
-    const i = `${`${Date.now()}${parseInt(Math.random() * 10000, 10)}${parseInt(Math.random() * 10000, 10)}`}`;
+    const i = ranID('');
     this.keys[0] = i;
     this.content[i] = '';
     if (initial) {
@@ -12,7 +32,7 @@ class HermDoc {
 
   push(index, value) {
     Array.from(value).forEach((e, k) => {
-      const i = `${`${Date.now()}${parseInt(Math.random() * 10000, 10)}${parseInt(Math.random() * 10000, 10)}`}`;
+      const i = ranID(e);
       this.keys.splice(index + k, 0, i);
       this.content[i] = e;
     });
