@@ -1,4 +1,7 @@
+/* eslint-disable import/no-duplicates */
+
 import HermDoc from '../modules/index';
+import { newHermDoc, display, push } from '../modules/index';
 
 describe('Text', () => {
   test('Is able push text', () => {
@@ -22,7 +25,7 @@ describe('Text', () => {
   });
 
   test('Is able to merge', () => {
-    let doc = new HermDoc();
+    const doc = new HermDoc();
     doc.push(0, 'Hello');
 
     const doc2 = doc.duplicate();
@@ -32,24 +35,24 @@ describe('Text', () => {
     expect(doc.display()).toBe('Hello world');
     expect(doc2.display()).toBe('Hello !');
 
-    doc = doc.merge(doc2); // first merge
+    doc.merge(doc2); // first merge
     expect(doc.display()).toBe('Hello world !');
 
     doc2.push(7, '?');
     expect(doc2.display()).toBe('Hello ?!');
 
-    doc = doc.merge(doc2); // no duplicates, even with outdated documents
+    doc.merge(doc2); // no duplicates, even with outdated documents
     expect(doc.display()).toBe('Hello world ?!');
   });
 
   test('Is able to merge bigger in smaller', () => {
-    let doc = new HermDoc();
+    const doc = new HermDoc();
     doc.push(0, 'H');
 
     const doc2 = doc.duplicate();
     doc.push(6, 'ello world');
 
-    doc = doc.merge(doc2);
+    doc.merge(doc2);
     expect(doc.display()).toBe('Hello world');
   });
 
@@ -80,31 +83,31 @@ describe('Text', () => {
     });
 
     test('three empty doc merge', () => {
-      let doc1 = new HermDoc();
-      let doc2 = new HermDoc();
-      let doc3 = new HermDoc();
+      const doc1 = new HermDoc();
+      const doc2 = new HermDoc();
+      const doc3 = new HermDoc();
 
-      doc1 = doc1.merge(doc2);
-      doc1 = doc1.merge(doc3);
+      doc1.merge(doc2);
+      doc1.merge(doc3);
 
-      doc2 = doc2.merge(doc1);
-      doc2 = doc2.merge(doc3);
+      doc2.merge(doc1);
+      doc2.merge(doc3);
 
-      doc3 = doc3.merge(doc1);
-      doc3 = doc3.merge(doc1);
+      doc3.merge(doc1);
+      doc3.merge(doc1);
 
       expect(doc1.display()).toBe('');
       expect(doc2.display()).toBe('');
       expect(doc3.display()).toBe('');
 
-      doc1 = doc1.merge(doc2);
-      doc1 = doc1.merge(doc3);
+      doc1.merge(doc2);
+      doc1.merge(doc3);
 
-      doc2 = doc2.merge(doc1);
-      doc2 = doc2.merge(doc3);
+      doc2.merge(doc1);
+      doc2.merge(doc3);
 
-      doc3 = doc3.merge(doc1);
-      doc3 = doc3.merge(doc1);
+      doc3.merge(doc1);
+      doc3.merge(doc1);
 
       expect(doc1.display()).toBe('');
       expect(doc2.display()).toBe('');
@@ -112,18 +115,18 @@ describe('Text', () => {
     });
 
     test('three non-empty doc merge', () => {
-      let doc1 = new HermDoc('a');
-      let doc2 = new HermDoc('b');
-      let doc3 = new HermDoc('c');
+      const doc1 = new HermDoc('a');
+      const doc2 = new HermDoc('b');
+      const doc3 = new HermDoc('c');
 
-      doc1 = doc1.merge(doc2);
-      doc1 = doc1.merge(doc3);
+      doc1.merge(doc2);
+      doc1.merge(doc3);
 
-      doc2 = doc2.merge(doc1);
-      doc2 = doc2.merge(doc3);
+      doc2.merge(doc1);
+      doc2.merge(doc3);
 
-      doc3 = doc3.merge(doc1);
-      doc3 = doc3.merge(doc2);
+      doc3.merge(doc1);
+      doc3.merge(doc2);
 
       expect(doc1.display()).toBe('abc');
       expect(doc2.display()).toBe('abc');
@@ -332,4 +335,10 @@ describe('Text', () => {
       expect(doc.display()).toBe('hllo');
     });
   });
+});
+
+test('use plain object', () => {
+  let doc = newHermDoc();
+  doc = push(doc, 0, 'hey');
+  expect(display(doc)).toBe('hey');
 });
