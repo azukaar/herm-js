@@ -1,6 +1,6 @@
 {
   "name": "herm-js",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "JS Network framework for offline first progressive web apps",
   "main": "modules/index.js",
   "module": "modules/index.js",
