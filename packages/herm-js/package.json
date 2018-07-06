@@ -1,6 +1,6 @@
 {
   "name": "herm-js",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "JS Network framework for offline first progressive web apps",
   "main": "modules/index.js",
   "module": "modules/index.js",
@@ -33,6 +33,6 @@
   "dependencies": {
     "cpy-cli": "^2.0.0",
     "herm-js-document": "^0.3.0",
-    "herm-js-network": "^0.3.0"
+    "herm-js-network": "^0.3.1"
   }
 }
