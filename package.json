@@ -1,15 +1,17 @@
 {
   "name": "herm-js-monorepo",
   "version": "0.0.1",
-  "description": "JS Network framework for offline first progressive web apps",
+  "description": "JS Network framework for powerful real-time offline first progressive web apps",
   "main": "index.js",
   "scripts": {
     "bootstrap": "lerna bootstrap --use-workspaces",
     "test": "lerna run lint; jest --coverage; cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "prepare": "lerna run prepare",
+    "publish": "yarn build; yarn copy-readme; lerna publish",
+    "lerna": "lerna",
     "build": "lerna run build",
-    "publish": "npm run build; lerna publish",
     "lint": "lerna run lint",
+    "copy-readme": "cpy ./README.md ./packages/herm-js/",
     "clean": "rimraf packages/**/lib"
   },
   "repository": {
@@ -42,6 +44,7 @@
     "babel-jest": "^22.4.3",
     "babel-preset-env": "^1.6.1",
     "coveralls": "^3.0.0",
+    "cpy-cli": "^2.0.0",
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.10.0",

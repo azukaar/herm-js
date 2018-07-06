@@ -1,12 +1,12 @@
 {
-  "name": "herm-js",
-  "version": "0.2.3",
-  "description": "JS Network framework for offline first progressive web apps",
+  "name": "herm-js-network",
+  "version": "0.0.1",
+  "description": "Herm-js network tool package for powerful network packet transmission.",
   "main": "modules/index.js",
   "module": "modules/index.js",
   "scripts": {
-    "test": "echo 'ignored'",
-    "lint": "echo 'ignored'",
+    "test": "jest",
+    "lint": "eslint --fix ./modules ./test",
     "build": "webpack -p"
   },
   "repository": {
@@ -31,8 +31,6 @@
   "author": "Yann Stepienik",
   "license": "Apache 2.0",
   "dependencies": {
-    "cpy-cli": "^2.0.0",
-    "herm-js-document": "^0.2.4",
-    "herm-js-network": "^0.0.1"
+    "cpy-cli": "^2.0.0"
   }
 }

@@ -1,6 +1,3 @@
-
-[![CircleCI](https://img.shields.io/circleci/project/github/azukaar/herm-js.svg)](https://circleci.com/gh/azukaar/herm-js/tree/master) [![Coverage Status](https://img.shields.io/coveralls/github/azukaar/herm-js.svg)](https://coveralls.io/github/azukaar/herm-js?branch=master) [![js-airbnb-style](https://img.shields.io/badge/code%20style-Airbnb-brightgreen.svg)](https://www.npmjs.com/package/eslint-config-airbnb-base)
-
 # Herm document system
 
 [![NPM](https://nodei.co/npm/herm-js-document.png)](https://npmjs.org/package/herm-js-document)
