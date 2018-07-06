@@ -1,6 +1,6 @@
 {
   "name": "herm-js-network",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "description": "Herm-js network tool package for powerful network packet transmission.",
   "main": "modules/index.js",
   "module": "modules/index.js",
