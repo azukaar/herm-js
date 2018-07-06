@@ -1,5 +1,5 @@
-import networkCompensator from './networkCompensator';
+import NetworkCompensator from './networkCompensator';
 
 export default {
-  networkCompensator,
+  NetworkCompensator,
 };
