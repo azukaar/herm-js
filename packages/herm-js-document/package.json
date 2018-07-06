@@ -1,6 +1,6 @@
 {
   "name": "herm-js-document",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "Herm-js document system for offline sync, and auto conflict resolution.",
   "main": "modules/index.js",
   "module": "modules/index.js",
